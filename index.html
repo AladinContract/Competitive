@@ -3,347 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aladin Protocol: The Future of the Gig Economy</title>
+    <title>Aladin: The Future of the Gig Economy | Competitive Analysis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827;
-            color: #F3F4F6;
+            background-color: #f0f2f5;
         }
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            height: 320px;
-            max-height: 400px;
+            height: 300px;
+            max-height: 350px;
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 400px;
-            }
-        }
-        .quadrant-chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 400px;
-            max-height: 500px;
-        }
-        @media (min-width: 768px) {
-            .quadrant-chart-container {
-                height: 500px;
+                height: 350px;
+                max-height: 400px;
             }
         }
         .gradient-text {
-            background: linear-gradient(90deg, #FF4E50, #FC913A);
+            background: linear-gradient(to right, #9B5DE5, #F15BB5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .card {
-            background-color: #1F2937;
-            border: 1px solid #374151;
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        /* === NÂNG CẤP CSS DÀNH RIÊNG CHO VIỆC IN RA PDF === */
-        @media print {
-            body {
-                width: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            body, .card {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            .card {
-                page-break-inside: avoid;
-            }
-            #web2-problem .grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* --- KIỂM SOÁT NGẮT TRANG & CĂN CHỈNH CÂN ĐỐI --- */
-            .container {
-                padding: 0 !important;
-                max-width: 100% !important;
-            }
-            header,
-            section#web2-problem,
-            section#aladin-solution,
-            section#positioning {
-                page-break-after: always;
-            }
-            section {
-                padding: 2rem;
-                min-height: 90vh; 
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            header {
-                min-height: 95vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-slate-50 text-slate-800">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
-        <!-- Toàn bộ phần body HTML của bạn giữ nguyên -->
-        <header class="text-center my-12">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight gradient-text">Rebuilding Trust in the Gig Economy</h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">The current freelance market is broken. Aladin Protocol leverages the power of the Cardano blockchain to create a fair, transparent, and decentralized alternative.</p>
-        </header>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-slate-900">
+                Aladin <span class="gradient-text">Strategic Analysis</span>
+            </h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#problem" class="text-slate-600 hover:text-[#F15BB5] transition">The Problem</a>
+                <a href="#competitors" class="text-slate-600 hover:text-[#F15BB5] transition">Competitors</a>
+                <a href="#solution" class="text-slate-600 hover:text-[#F15BB5] transition">Aladin's Solution</a>
+                <a href="#matrix" class="text-slate-600 hover:text-[#F15BB5] transition">Comparison</a>
+            </div>
+        </nav>
+    </header>
 
-        <main class="space-y-16">
-            
-            <section id="web2-problem">
-                <h2 class="text-3xl font-bold text-center mb-8">The Problem with the Old Guard</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                    <div class="card rounded-lg shadow-xl p-6">
-                        <h3 class="text-2xl font-bold mb-4 text-center">Exorbitant Platform Fees</h3>
-                        <p class="text-gray-400 mb-6 text-center">Web2 incumbents like Upwork and Fiverr extract significant value from freelancers and clients, with take-rates that stifle growth and fairness.</p>
-                        <div class="chart-container">
-                            <canvas id="feeComparisonChart"></canvas>
-                        </div>
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="text-center my-12 md:my-20">
+            <h2 class="text-4xl md:text-6xl font-black mb-4">The Gig Economy is Broken.</h2>
+            <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600">
+                Centralized platforms promised opportunity but delivered a system with a massive trust deficit. High fees, trapped reputations, and opaque rules create a landscape ripe for disruption. A new, decentralized paradigm is emerging.
+            </p>
+        </section>
+
+        <section id="problem" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-10">The Core Frictions of Web2 Platforms</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="kpi-card">
+                    <h4 class="text-xl font-bold mb-4 text-center">The "Trust Tax": Exorbitant Fees</h4>
+                    <p class="text-slate-600 mb-4 text-center">Web2 platforms justify their existence by acting as a trusted intermediary, but this trust comes at a steep price, extracting significant value from every transaction.</p>
+                    <div class="chart-container h-64 md:h-72">
+                        <canvas id="feeChart"></canvas>
                     </div>
-                    <div class="card rounded-lg shadow-xl p-6 space-y-6">
-                        <h3 class="text-2xl font-bold mb-2 text-center">Centralized Control & Bias</h3>
-                         <div class="flex items-start space-x-4">
-                            <div class="text-3xl mt-1">⛓️</div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-white">Censorship & De-platforming</h4>
-                                <p class="text-gray-400">Centralized platforms hold absolute power to suspend accounts and withhold funds with little to no recourse for users.</p>
+                </div>
+
+                <div class="kpi-card">
+                    <h4 class="text-xl font-bold mb-4 text-center">The Walled Garden: Siloed Reputation</h4>
+                    <p class="text-slate-600 mb-4 text-center">Freelancers spend years building their reputation, but this valuable asset is trapped. It's non-portable and can be revoked at any time, creating total platform dependency.</p>
+                    <div class="flex flex-col items-center justify-center h-64 md:h-72 p-4 border-2 border-dashed border-slate-200 rounded-lg">
+                        <div class="flex items-center space-x-2">
+                            <div class="bg-[#9B5DE5] text-white p-3 rounded-lg shadow-lg">
+                                <span class="text-2xl font-bold">★ 4.9</span>
+                            </div>
+                            <span class="text-4xl text-slate-300 font-thin">→</span>
+                             <div class="bg-slate-200 text-slate-500 p-3 rounded-lg">
+                                <span class="text-2xl font-bold">?</span>
                             </div>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="text-3xl mt-1">⚖️</div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-white">Biased Dispute Resolution</h4>
-                                <p class="text-gray-400">Dispute resolution is often opaque and biased, creating an environment of uncertainty and mistrust for freelancers.</p>
-                            </div>
+                        <p class="mt-4 text-center font-semibold text-[#9B5DE5]">Reputation on Platform A</p>
+                        <p class="text-center font-semibold text-slate-500">Value on Platform B</p>
+                        <div class="w-full h-1 bg-gradient-to-r from-[#9B5DE5] to-slate-200 mt-4 rounded-full"></div>
+                        <p class="mt-2 text-xs text-slate-500">Professional identity is not user-owned.</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <h4 class="text-xl font-bold mb-4 text-center">The Black Box: Opaque Dispute Resolution</h4>
+                    <p class="text-slate-600 mb-4 text-center">When disagreements arise, users are at the mercy of a centralized, corporate entity. The process is slow, often biased, and lacks any real transparency.</p>
+                     <div class="flex flex-col items-center justify-center h-64 md:h-72 p-4 border-2 border-dashed border-slate-200 rounded-lg">
+                        <div class="text-6xl mb-4">⚖️</div>
+                        <p class="text-center font-bold text-slate-700 mb-2">Centralized Authority</p>
+                        <p class="text-center text-sm text-slate-500 px-4">Final decisions are made behind closed doors, with no verifiable or impartial process, eroding user trust in the platform's fairness.</p>
+                        <div class="mt-4 flex items-center space-x-2">
+                            <span class="text-red-500">■ Opaque</span>
+                            <span class="text-red-500">■ Slow</span>
+                            <span class="text-red-500">■ Biased</span>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="text-3xl mt-1">⭐️</div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-white">Subjective Reputation</h4>
-                                <p class="text-gray-400">Reputation is based on subjective star ratings which can be easily manipulated, failing to reflect true value and reliability.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </section>
 
-            <section id="aladin-solution">
-                <h2 class="text-3xl font-bold text-center mb-8">The Aladin Protocol Solution</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card rounded-lg shadow-xl p-6 text-center">
-                        <div class="text-5xl mb-4">💎</div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Verifiable On-Chain Reputation</h3>
-                        <p class="text-gray-400">Aladin introduces CVC (Committed Value in Contract), a non-transferable reputation score pegged to the stablecoin value of successfully completed jobs. Reputation is earned, not bought.</p>
+            </div>
+        </section>
+
+        <section id="competitors" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-10">Competitive Landscape: A Tale of Two Models</h3>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 text-center mb-12">The market is divided between centralized Web2 incumbents who control the ecosystem and decentralized Web3 challengers who aim to empower users.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="text-2xl font-bold mb-4">Web2 Incumbents: <span class="text-[#F15BB5]">Upwork & Fiverr</span></h4>
+                    <p class="text-slate-600 mb-4">These platforms dominate the market by acting as powerful intermediaries. Their entire business model is built on centralization, which allows for high value extraction but creates the core problems of the gig economy.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-[#F15BB5] mr-2">✔</span> <span>Centralized escrow provides a sense of security.</span></li>
+                        <li class="flex items-start"><span class="text-[#F15BB5] mr-2">✔</span> <span>Large, established user base of clients and freelancers.</span></li>
+                        <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <span>High commission fees (up to 20%).</span></li>
+                        <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <span>Non-portable, platform-specific reputation systems.</span></li>
+                        <li class="flex items-start"><span class="text-red-500 mr-2">✖</span> <span>Opaque and often unfair dispute resolution.</span></li>
+                    </ul>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="text-2xl font-bold mb-4">Web3 Challengers: <span class="text-[#00F5D4]">Braintrust & DeWork</span></h4>
+                    <p class="text-slate-600 mb-4">Built on blockchain, these platforms introduce decentralization, user ownership, and transparency. They aim to create a more equitable ecosystem where value accrues to the network participants.</p>
+                     <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-[#00CCBF] mr-2">✔</span> <span>Low or zero commission fees for talent.</span></li>
+                        <li class="flex items-start"><span class="text-[#00CCBF] mr-2">✔</span> <span>On-chain reputation offers greater portability.</span></li>
+                        <li class="flex items-start"><span class="text-[#00CCBF] mr-2">✔</span> <span>Community-based or automated dispute resolution.</span></li>
+                        <li class="flex items-start"><span class="text-yellow-500 mr-2">●</span> <span>Often require crypto-knowledge, limiting mass adoption.</span></li>
+                        <li class="flex items-start"><span class="text-yellow-500 mr-2">●</span> <span>Some still rely on centralized components for usability (e.g., fiat payments).</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="my-20 bg-slate-900 text-white py-16 rounded-2xl">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-4xl font-black mb-4">Aladin's Foundational Solution</h3>
+                <p class="max-w-3xl mx-auto text-lg text-slate-300 mb-12">Aladin is not just another platform; it's a new protocol for work. It solves the gig economy's core problems through a trustless, transparent, and user-owned architecture.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="text-4xl mb-4">🤝</div>
+                        <h4 class="text-xl font-bold mb-2 text-[#00F5D4]">Committed Value in Contract (CVC)</h4>
+                        <p class="text-slate-400">A new trust paradigm. CVC creates a transparent, on-chain trust score based on verifiable commitment, replacing subjective, siloed ratings with immutable proof of reputation.</p>
                     </div>
-                    <div class="card rounded-lg shadow-xl p-6 text-center">
-                        <div class="text-5xl mb-4">🛡️</div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Collateral-Backed Contracts</h3>
-                        <p class="text-gray-400">Both parties stake collateral in a smart contract. This creates a powerful economic incentive for job fulfillment and protects against non-payment and poor-quality work.</p>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="text-4xl mb-4">🏛️</div>
+                        <h4 class="text-xl font-bold mb-2 text-[#00F5D4]">Sultanate Arbitration</h4>
+                        <p class="text-slate-400">A truly decentralized and impartial justice system. Governed by the protocol, it provides a fair, transparent, and robust alternative to corporate-controlled dispute resolution.</p>
                     </div>
-                    <div class="card rounded-lg shadow-xl p-6 text-center">
-                         <div class="text-5xl mb-4">🤝</div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Community Arbitration</h3>
-                        <p class="text-gray-400">Disputes are resolved by the "Sultanate," a decentralized body of community members who vote on outcomes, ensuring fair and transparent judgments.</p>
-                    </div>
-                    <div class="card rounded-lg shadow-xl p-6 text-center">
-                        <div class="text-5xl mb-4">🔌</div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Job Smart Contract as a Service</h3>
-                        <p class="text-gray-400">Aladin's B2B model allows other platforms to integrate its trust and payment infrastructure via a simple API (Job-SCaaS), scaling its impact across the web.</p>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="text-4xl mb-4">📜</div>
+                        <h4 class="text-xl font-bold mb-2 text-[#00F5D4]">Proof-of-Skill Credentials</h4>
+                        <p class="text-slate-400">True ownership of your professional identity. Reputation becomes a portable, user-owned asset (NFT/DID), liberating freelancers from platform lock-in forever.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="positioning">
-                <h2 class="text-3xl font-bold text-center mb-2">Strategic Positioning Map</h2>
-                <p class="text-gray-400 text-center mb-8 max-w-3xl mx-auto">Aladin is uniquely positioned in the top-right quadrant, combining full decentralization with a robust, verifiable reputation system that legacy platforms and Web3 challengers cannot match.</p>
-                <div class="card rounded-lg shadow-xl p-6">
-                    <div class="quadrant-chart-container">
-                        <canvas id="positioningMap"></canvas>
-                    </div>
+        <section id="matrix" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-10">Head-to-Head: A Multi-Axis Comparison</h3>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 text-center mb-12">When analyzed across the core pillars of a modern work platform, Aladin's architectural advantages become clear. It is designed from the ground up to be more decentralized, user-centric, and trustworthy.</p>
+            <div class="kpi-card">
+                <div class="chart-container h-[400px] md:h-[500px] max-w-4xl max-h-[600px]">
+                    <canvas id="comparisonRadarChart"></canvas>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="tech-foundation">
-                <h2 class="text-3xl font-bold text-center mb-8">Built on a Foundation for the Future: Cardano</h2>
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card rounded-lg shadow-xl p-6 text-center">
-                        <div class="text-5xl mb-4">🌱</div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Low Fees & Sustainability</h3>
-                        <p class="text-gray-400">Cardano's eUTXO model and Proof-of-Stake consensus provide a low-cost, energy-efficient environment, making micro-transactions viable.</p>
-                    </div>
-                    <div class="card rounded-lg shadow-xl p-6 text-center">
-                        <div class="text-5xl mb-4">⚡️</div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Scalability with Hydra</h3>
-                        <p class="text-gray-400">Future integration with Hydra, Cardano's Layer 2 solution, will enable near-instant transaction finality and massive throughput for a global-scale platform.</p>
-                    </div>
-                    <div class="card rounded-lg shadow-xl p-6 text-center">
-                        <div class="text-5xl mb-4">🆔</div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Decentralized Identity</h3>
-                        <p class="text-gray-400">Atala PRISM will allow users to own and control their identity, enabling private, verifiable credentials without relying on a central authority.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
+    </main>
 
-        <footer class="text-center mt-16 py-8 border-t border-gray-700">
-            <p class="text-gray-500">Aladin Protocol: Building a more equitable and efficient global gig economy.</p>
-        </footer>
-    </div>
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Aladin Strategic Analysis. All data derived from the official project description and publicly available competitor information.</p>
+            <p class="text-sm mt-2">This infographic is for illustrative and analytical purposes only.</p>
+        </div>
+    </footer>
 
     <script>
-        // SCRIPT GIỮ NGUYÊN NHƯ PHIÊN BẢN TRƯỚC
-        document.addEventListener('DOMContentLoaded', function () {
-            const FONT_COLOR = '#F3F4F6';
-            const GRID_COLOR = '#374151';
-            const PALETTE = {
-                red: '#FF4E50',
-                orange: '#FC913A',
-                yellow: '#F9D423',
-                lightGreen: '#E1F5C4',
-                gray: '#9CA3AF'
-            };
-
-            if (document.getElementById('feeComparisonChart')) {
-                const ctx = document.getElementById('feeComparisonChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Fiverr', 'Upwork', 'Aladin Protocol'],
-                        datasets: [{
-                            label: 'Platform Take-Rate (%)',
-                            data: [20, 10, 1],
-                            backgroundColor: [PALETTE.red, PALETTE.orange, PALETTE.lightGreen],
-                            borderColor: [PALETTE.red, PALETTE.orange, PALETTE.lightGreen],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        animation: { duration: 0 },
-                        maintainAspectRatio: false,
-                        responsive: true,
-                        indexAxis: 'y',
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Fee Percentage (%)',
-                                    color: FONT_COLOR,
-                                    font: { size: 14 }
-                                },
-                                ticks: { color: FONT_COLOR },
-                                grid: { color: GRID_COLOR }
-                            },
-                            y: {
-                                ticks: { color: FONT_COLOR, font: { size: 14 } },
-                                grid: { display: false }
-                            }
-                        },
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: { callbacks: { title: (tooltipItems) => tooltipItems[0].label } }
-                        }
-                    }
-                });
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
             }
+            return label;
+        };
 
-            if (document.getElementById('positioningMap')) {
-                const ctxMap = document.getElementById('positioningMap').getContext('2d');
-                const competitorsData = [
-                    { x: 1, y: 1, label: 'Upwork / Fiverr' },
-                    { x: 8, y: 4, label: 'Braintrust' },
-                    { x: 7, y: 3, label: 'LaborX' },
-                    { x: 9, y: 9, label: 'Aladin Protocol' }
-                ];
-
-                new Chart(ctxMap, {
-                    type: 'scatter',
-                    data: {
-                        labels: competitorsData.map(d => d.label),
-                        datasets: [{
-                            label: 'Competitors',
-                            data: competitorsData,
-                            backgroundColor: competitorsData.map(d => d.label === 'Aladin Protocol' ? PALETTE.lightGreen : PALETTE.orange),
-                            pointRadius: 10,
-                            pointHoverRadius: 15,
-                        }]
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines.filter(line => line);
+        };
+        
+        const feeChartCtx = document.getElementById('feeChart').getContext('2d');
+        new Chart(feeChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Fiverr Fee (20%)', 'Upwork Fee (10%)', 'Freelancer Earnings'],
+                datasets: [{
+                    label: 'Fee Structure',
+                    data: [20, 10, 70],
+                    backgroundColor: ['#F15BB5', '#9B5DE5', '#00F5D4'],
+                    borderColor: '#ffffff',
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
                     },
-                    options: {
-                        animation: { duration: 0 },
-                        maintainAspectRatio: false,
-                        responsive: true,
-                        scales: {
-                            x: {
-                                min: 0,
-                                max: 10,
-                                title: {
-                                    display: true,
-                                    text: '→ Degree of Decentralization',
-                                    color: FONT_COLOR,
-                                    font: { size: 16, weight: 'bold' }
-                                },
-                                ticks: {
-                                    color: FONT_COLOR,
-                                    callback: (value) => {
-                                        if (value === 0) return 'Centralized';
-                                        if (value === 10) return 'Decentralized';
-                                        return '';
-                                    }
-                                },
-                                grid: { color: GRID_COLOR, drawOnChartArea: true }
-                            },
-                            y: {
-                                min: 0,
-                                max: 10,
-                                title: {
-                                    display: true,
-                                    text: '→ Strength of Verifiable Reputation',
-                                    color: FONT_COLOR,
-                                    font: { size: 16, weight: 'bold' }
-                                },
-                                ticks: {
-                                    color: FONT_COLOR,
-                                    callback: (value) => {
-                                        if (value === 0) return 'Subjective';
-                                        if (value === 10) return 'Immutable';
-                                        return '';
-                                    }
-                                },
-                                grid: { color: GRID_COLOR, drawOnChartArea: true }
-                            }
-                        },
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                callbacks: {
-                                    title: (tooltipItems) => tooltipItems[0].chart.data.labels[tooltipItems[0].dataIndex],
-                                    label: function(context) {
-                                        return `Decentralization: ${context.parsed.x}, Reputation: ${context.parsed.y}`;
-                                    }
-                                }
-                            }
+                    title: {
+                        display: true,
+                        text: 'Typical Platform Fee Extraction',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
                         }
                     }
-                });
+                },
+                cutout: '60%'
+            }
+        });
+
+        const radarChartCtx = document.getElementById('comparisonRadarChart').getContext('2d');
+        const radarLabels = ['Decentralization', 'Trust Mechanism', 'Reputation Portability', 'Dispute Resolution', 'Fee Fairness'];
+        new Chart(radarChartCtx, {
+            type: 'radar',
+            data: {
+                labels: radarLabels.map(wrapLabel),
+                datasets: [
+                    {
+                        label: 'Upwork/Fiverr (Web2)',
+                        data: [1, 3, 1, 2, 2],
+                        backgroundColor: 'rgba(241, 91, 181, 0.2)',
+                        borderColor: '#F15BB5',
+                        pointBackgroundColor: '#F15BB5',
+                        borderWidth: 2,
+                    },
+                    {
+                        label: 'Braintrust (Web3)',
+                        data: [7, 6, 6, 7, 8],
+                        backgroundColor: 'rgba(254, 228, 64, 0.2)',
+                        borderColor: '#FEE440',
+                        pointBackgroundColor: '#FEE440',
+                        borderWidth: 2,
+                    },
+                    {
+                        label: 'Aladin (Protocol)',
+                        data: [10, 10, 10, 10, 10],
+                        backgroundColor: 'rgba(0, 245, 212, 0.2)',
+                        borderColor: '#00F5D4',
+                        pointBackgroundColor: '#00F5D4',
+                        borderWidth: 3,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 12 } },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: {
+                            stepSize: 2,
+                            backdropColor: 'rgba(255, 255, 255, 0.75)'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Platform Capability Score (out of 10)',
+                        font: { size: 18, weight: 'bold' }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                        }
+                    }
+                }
             }
         });
     </script>
